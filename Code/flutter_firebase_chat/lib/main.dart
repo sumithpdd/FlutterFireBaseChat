@@ -4,6 +4,7 @@ import 'package:flutter_firebase_chat/screens/home_screen.dart';
 import 'package:flutter_firebase_chat/screens/login_screen.dart';
 import 'package:flutter_firebase_chat/services/auth_service.dart';
 import 'package:flutter_firebase_chat/services/database_service.dart';
+import 'package:flutter_firebase_chat/services/storage_service.dart';
 import 'package:provider/provider.dart';
 
 import 'models/user_data.dart';
@@ -17,6 +18,9 @@ void main() => runApp(MultiProvider(providers: [
       ),
       Provider<DataBaseService>(
         create: (_) => DataBaseService(),
+      ),
+      Provider<StorageService>(
+        create: (_) => StorageService(),
       )
     ], child: MyApp()));
 
