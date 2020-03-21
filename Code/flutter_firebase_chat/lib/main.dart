@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_firebase_chat/screens/home_screen.dart';
 import 'package:flutter_firebase_chat/screens/login_screen.dart';
 import 'package:flutter_firebase_chat/services/auth_service.dart';
+import 'package:flutter_firebase_chat/services/database_service.dart';
 import 'package:provider/provider.dart';
 
 import 'models/user_data.dart';
@@ -13,6 +14,9 @@ void main() => runApp(MultiProvider(providers: [
       ),
       Provider<AuthService>(
         create: (_) => AuthService(),
+      ),
+      Provider<DataBaseService>(
+        create: (_) => DataBaseService(),
       )
     ], child: MyApp()));
 
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Firebase Chat',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.white,
+        primaryColor: Colors.blue,
       ),
       home: StreamBuilder<FirebaseUser>(
         stream: Provider.of<AuthService>(context, listen: false).user,
