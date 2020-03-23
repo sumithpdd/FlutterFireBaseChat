@@ -42,6 +42,7 @@ class DataBaseService {
     Map<String, dynamic> readStatus = {};
     for (String userId in users) {
       User user = await getUser(userId);
+      memberIds.add(userId);
       Map<String, dynamic> userMap = {
         'name': user.name,
         'email': user.email,
